@@ -6,6 +6,7 @@ declare type Props = HTMLAttributes<HTMLDivElement> & {
     }>;
     wrapper: ComponentType<{
         piece: PieceType | null;
+        index: number;
     } & HTMLAttributes<HTMLDivElement>>;
 };
 export default function Targets({ component, wrapper, ...props }: Props): JSX.Element;

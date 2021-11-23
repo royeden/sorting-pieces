@@ -9,7 +9,7 @@ import Dropzone from "./Dropzone";
 type Props = HTMLAttributes<HTMLDivElement> & {
   component: ComponentType<{ piece: PieceType }>;
   wrapper: ComponentType<
-    { piece: PieceType | null } & HTMLAttributes<HTMLDivElement>
+    { piece: PieceType | null, index: number } & HTMLAttributes<HTMLDivElement>
   >;
 };
 
@@ -22,6 +22,7 @@ export default function Targets({ component, wrapper, ...props }: Props) {
         <Dropzone
           key={`dropzone-${index}-${piece?.id ?? "empty"}`}
           component={component}
+          index={index}
           piece={piece}
           wrapper={wrapper}
           onTarget={(targetIndex) =>
