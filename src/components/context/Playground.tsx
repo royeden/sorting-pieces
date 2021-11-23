@@ -1,4 +1,4 @@
-import type { Dispatch, PropsWithChildren } from "react";
+import type { Dispatch, HTMLAttributes, PropsWithChildren } from "react";
 
 import type { GameState, LevelType } from "../../types";
 import type { GameStateAction } from "../../lib/hooks/useGameState";
@@ -14,13 +14,14 @@ export type PlaygroundContextType = GameState & {
 
 export const PlaygroundContext = createContext<PlaygroundContextType>(null!);
 
-type PlaygroundProps = {
+type PlaygroundProps = HTMLAttributes<HTMLDivElement> & {
   levels: LevelType[];
 };
 
 export default function PlaygroundProvider({
   children,
   levels,
+  ...props
 }: PropsWithChildren<PlaygroundProps>) {
   const [gameState, dispatch] = useGameState(levels);
 
@@ -29,7 +30,7 @@ export default function PlaygroundProvider({
   );
 
   return (
-    <div style={{ height: "100%", width: "100%", overflow: "hidden" }}>
+    <div {...props} style={{ height: "100%", width: "100%", overflow: "hidden" }}>
       <AnimateSharedLayout>
         <PlaygroundContext.Provider key={`${gameState.level}`} value={{ ...gameState, hasWon, dispatch }}>
           {children}
