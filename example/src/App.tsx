@@ -4,7 +4,7 @@ import {
   PlaygroundProvider,
   Targets,
   usePlaygroundContext,
-} from "pieces-game";
+} from "sorting-game";
 import logo from "./logo.svg";
 
 import mocklevels from "./mocklevels";

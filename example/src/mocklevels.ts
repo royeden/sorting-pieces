@@ -1,4 +1,4 @@
-import type { PieceType } from "pieces-game";
+import type { PieceType } from "sorting-game";
 
 function createMockPiece(index: number): PieceType {
   const string = index + "";
