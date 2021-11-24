@@ -16,10 +16,10 @@ export default function PiecesContainer({
   component: Component,
   ...props
 }: Props) {
-  const { pieces, dispatch } = usePlaygroundContext();
+  const { level, pieces, dispatch } = usePlaygroundContext();
   const container = useRef<HTMLDivElement>(null!);
   return (
-    <div ref={container} {...props}>
+    <div key={`pieces-${level}`} ref={container} {...props}>
       {pieces.map(
         (piece, index) =>
           piece && (

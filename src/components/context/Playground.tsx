@@ -32,7 +32,7 @@ export default function PlaygroundProvider({
   return (
     <div {...props} style={{ height: "100%", width: "100%", overflow: "hidden" }}>
       <AnimateSharedLayout>
-        <PlaygroundContext.Provider key={`${gameState.level}`} value={{ ...gameState, hasWon, dispatch }}>
+        <PlaygroundContext.Provider value={{ ...gameState, hasWon, dispatch }}>
           {children}
         </PlaygroundContext.Provider>
       </AnimateSharedLayout>

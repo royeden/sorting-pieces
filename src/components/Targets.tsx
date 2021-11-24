@@ -14,10 +14,10 @@ type Props = HTMLAttributes<HTMLDivElement> & {
 };
 
 export default function Targets({ component, wrapper, ...props }: Props) {
-  const { targets, dispatch } = usePlaygroundContext();
+  const { level, targets, dispatch } = usePlaygroundContext();
 
   return (
-    <div {...props}>
+    <div key={`targets-${level}`} {...props}>
       {targets.map(({ piece }, index) => (
         <Dropzone
           key={`dropzone-${index}-${piece?.id ?? "empty"}`}
